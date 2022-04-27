@@ -11,11 +11,14 @@ fun main() {
 
     // какой пост будем менять после публикации
 
-    val updatePost = "(((((  Пост  изменен  на   новую   запись  ! ))))) "
-    val idUpdatePost: Long = 102
+    val updatePostOk = Post(102, 2, "Autor2", "(((((  Пост  изменен  на   новую   запись  ! )))))", 2, 2)
+//    val idUpdatePost: Long = 102
+//    val updatePost = "(((((  Пост  изменен  на   новую   запись  ! ))))) "
 
-    val updatePostNot = "(((((  Пост НЕ изменен  на   новую   запись  !!!!!!!!!!!!!!!!!!!!! ))))) "
-    val idUpdatePostNot: Long = 105
+    val updatePostNot =
+        Post(105, 2, "Autor2", "(((((  Пост НЕ изменен  на   новую   запись  !!!!!!!!!!!!!!!!!!!!! )))))", 2, 2)
+//    val updatePostNot = "(((((  Пост НЕ изменен  на   новую   запись  !!!!!!!!!!!!!!!!!!!!! ))))) "
+//    val idUpdatePostNot: Long = 105
 
     // Печать исходных постов
 
@@ -42,7 +45,7 @@ fun main() {
     // меняем пост с нужным номером и проверяем изменен пост или нет
 
     println()
-    if (WallService.update(idUpdatePost, updatePost)) {
+    if (WallService.update(updatePostOk)) {
         println("Изменения записаны!")
     } else println("Изменения не записаны!")
 
@@ -54,7 +57,7 @@ fun main() {
     WallService.printAll()
 
     println()
-    if (WallService.update(idUpdatePostNot, updatePostNot)) {
+    if (WallService.update(updatePostNot)) {
         println("Изменения записаны!")
     } else println("Изменения не записаны!")
 
@@ -66,6 +69,6 @@ fun main() {
     WallService.printAll()
 
 
-  // val rem = WallService.removeById(101)
-   // println(rem)
+    // val rem = WallService.removeById(101)
+    // println(rem)
 }

@@ -1,83 +1,40 @@
 package ru.netology
 
-//import WallServise
+
 import org.junit.Test
 
 import org.junit.Assert.*
 import ru.netology.post.data.Post
 import ru.netology.post.service.WallService
 
-class WallServiseTest {
-
+class WallServiceTest {
     @Test
-    fun addWallServise() {
-       // var posts = emptyArray<Post>() //конструктор массива - создает пустой массив
-       // var property: Long = 100
+    fun updateExisting() {
+        // создаём целевой сервис
+        val service = WallService
 
-        data class Post(
-            val id: Long = 0,
-            val autorId: Long = 1,
-            val autorName: String = "Autor1",
-            val content: String = "Запись поста номер 1",
-            val created: Long = 0,
-            val likes: Int = 0
-        )
+        // заполняем несколькими постами
+        service.add(Post(1, 1, "Autor1", "Запись поста номер 1", 1, 1/* заполняете поля */))
+        service.add(Post(2, 2, "Autor2", "Запись поста номер 2", 2, 2/* заполняете поля */))
+        val result: Post = service.add(Post(3, 3, "Autor3", "Запись поста номер 3", 3, 3/* заполняете поля */))
 
-        val post2 = ru.netology.post.data.Post(0, 2, "Autor2", "Запись поста номер 2", 2, 2)
-        val post3 = ru.netology.post.data.Post(101, 2, "Autor2", "Запись поста номер 2", 2, 2)
+        // создаём информацию об обновлении
+        val post = Post(103, 3, "Autor3", "Запись поста номер 3", 3, 3/* заполняете поля */)
 
-        val result = WallService.add(post2)
-        println(result.toString())
+        // проверяем результат
+        assertEquals(post, result)
 
-        assertEquals(post3, result)
-    }
+        // заполняем Пост с изменениями
+        val update = Post(101, 1, "Autor1", "Запись обновлена", 1, 1/* заполняете поля */)
 
-    @Test
-    fun updateWallServise() {
+        // выполняем целевое действие
 
-         //var posts = emptyArray<Post>() //конструктор массива - создает пустой массив
-        // var property: Long = 100
-
-        data class Post(
-            val id: Long = 0,
-            val autorId: Long = 1,
-            val autorName: String = "Autor1",
-            val content: String = "Запись поста номер 1",
-            val created: Long = 0,
-            val likes: Int = 0
-        )
-
-        val post2 = ru.netology.post.data.Post(0, 2, "Autor2", "Запись поста номер 2", 2, 2)
-        //val post3 = ru.netology.post.data.Post(101, 2, "Autor2", "Запись поста номер 2", 2, 2)
+        val resultUpdate = service.update(update)
 
 
-        WallService.add(post2)
+        // проверяем результат (используйте assertTrue или assertFalse)
+        assertEquals(true, resultUpdate)
+        //  assertTrue(result)
 
-        val result = WallService.update(101, "updatePost")
-            println(result.toString())
-
-        assertEquals(true, result)
     }
 }
-//
-//
-//        // Arrange — подготовка данных (задание переменных).
-//        val tipKardTest: String = "VK_Pay"
-//        val summOldTest: Int = 10_000_00
-//        val summNewTest: Int = 15_000_00
-//
-//        //  Act — выполнение целевого действия (вызов функции).
-//        val result = commission(
-//
-//            tipKard = tipKardTest,
-//            summOld = summOldTest,
-//            summNew = summNewTest
-//        )
-//
-//        //  Assert — сравнение ожидаемого результата с фактическим.
-//        assertEquals(0, result)
-//    }
-//
-//}
-//
-//

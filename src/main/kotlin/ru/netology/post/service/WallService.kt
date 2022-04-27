@@ -13,16 +13,18 @@ object WallService {
         property += 1
         val postId = post.copy(id = property)
         posts += postId
-        return posts.last() // возвращаем последний рост first
-        //return posts.first()
+        return posts.last() // возвращаем последний рост
     }
 
     // перебор с индексом замена поста по индексу
-    fun update(id: Long, nowPost: String): Boolean {
+
+    fun update(post: Post): Boolean {
+        val (id, _, _, content) = post
+
         var ok: Boolean = false
         for ((index, post) in posts.withIndex()) {
             if (post.id == id) {
-                posts[index] = post.copy(content = nowPost) // по индексу ищем нужный пост и меняем content
+                posts[index] = post.copy(content = content) // по индексу ищем нужный пост и меняем content
                 ok = true
             }
         }
@@ -35,28 +37,5 @@ object WallService {
             println(post.toString())
         }
     }
-
-//    fun removeById(id: Long): Boolean {
-//        var ok: Boolean = false
-//        for ((index, post) in posts.withIndex()) {
-//            if (post.id == id) {
-//               // val postId = post.copy(id = property)
-//                //posts += postId
-//             posts.remove(posts[index])
-//              //  println(ru.toString())
-//           val ru = posts[index].copy()
-//                posts -= ru
-//
-//                // remove.             // = post.copy(content = nowPost) // по индексу ищем нужный пост и меняем content
-//                ok = true
-//            }
-//        }
-//        return ok
-//
-//
-//
-//
-//       // posts.remove(id) // удаляет только первое значение `3`
- //   }
 
 }
