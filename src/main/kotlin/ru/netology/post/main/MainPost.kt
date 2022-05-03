@@ -6,12 +6,12 @@ fun main() {
     //создаем посты
 
     val post1 = Post()
-    val post2 = Post(0, 2, "Autor2", "Запись поста номер 2", 2, 2)
-    val post3 = post1.copy(0, 3, "Autor3", "Запись поста номер 3", likes = post1.likes + 3)
+    val post2 = Post(0, 2, "Autor2", "Запись поста номер 2", 2, 2,"02.05.2022")
+    val post3 = post1.copy(0, 3, "Autor3", "Запись поста номер 3",3, likes = post1.likes + 3, "03.05.2022")
 
     // какой пост будем менять после публикации
 
-    val updatePostOk = Post(102, 2, "Autor2", "(((((  Пост  изменен  на   новую   запись  ! )))))", 2, 2)
+    val updatePostOk = Post(2, 2, "Autor2", "(((((  Пост  изменен  на   новую   запись  ! )))))", 2, 2, "04.05.2022")
 
 
     val updatePostNot =
@@ -29,9 +29,12 @@ fun main() {
 
     // запись постов в массив
 
-    WallService.add(post1)
-    WallService.add(post2)
-    WallService.add(post3)
+//    WallService.add(post1)
+//    WallService.add(post2)
+//    WallService.add(post3)
+    WallService.addPost(post1)
+    WallService.addPost(post2)
+    WallService.addPost(post3)
 
     // Печать постов в массиве
 
@@ -50,7 +53,7 @@ fun main() {
     // Печать изменений
 
     println("========================================================")
-    println("Пост с id - 102 в массивe - изменен. ")
+    println("Пост с id - 2 в массивe - изменен. ")
     println("========================================================")
     WallService.printAll()
 
