@@ -22,7 +22,7 @@ object WallService {
     // перебор с индексом замена поста по индексу
     fun update(postUpdate: Post): Boolean {
         val (id, _, _, content) = postUpdate
-        var ok: Boolean = false
+        var ok = false
         for ((index, post) in posts.withIndex()) {
             if (post.ownerId == id) {
                 posts[index] = post.copy(content = content) // по индексу ищем нужный пост и меняем content

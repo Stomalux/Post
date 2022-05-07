@@ -9,5 +9,7 @@ data class Post(
     val content: String = "Запись поста номер 1",
     val created: Long = 0,
     var likes: Int = 0,
-    val datePost: String = "01.05.2022"
+    val datePost: String = "01.05.2022",
+
+    val attachments:Array<Any>? = null
 )

@@ -29,9 +29,6 @@ fun main() {
 
     // запись постов в массив
 
-//    WallService.add(post1)
-//    WallService.add(post2)
-//    WallService.add(post3)
     WallService.addPost(post1)
     WallService.addPost(post2)
     WallService.addPost(post3)
