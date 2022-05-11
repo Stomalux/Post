@@ -1,6 +1,14 @@
 import ru.netology.post.data.Post
 import ru.netology.post.service.WallService
 
+
+
+
+
+
+// Создана новая ветвь Attachments/11.05.22 исправлена версия программы '1.01-SNAPSHOT'
+
+
 fun main() {
 
     //создаем посты
