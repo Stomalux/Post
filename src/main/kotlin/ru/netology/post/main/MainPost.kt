@@ -1,3 +1,4 @@
+import ru.netology.post.attachments.attachiMain.AttachiMain
 import ru.netology.post.data.Post
 import ru.netology.post.service.WallService
 
@@ -11,15 +12,19 @@ import ru.netology.post.service.WallService
 
 fun main() {
 
+    //создаем аттачменты
+    val attachiForPost = AttachiMain.mainAttachmentsArray()
+
+
     //создаем посты
 
     val post1 = Post()
-    val post2 = Post(0, 2, "Autor2", "Запись поста номер 2", 2, 2,"02.05.2022")
+    val post2 = Post(0, 2, "Autor2", "Запись поста номер 2", 2, 2,"02.05.2022", attachiForPost)
     val post3 = post1.copy(0, 3, "Autor3", "Запись поста номер 3",3, likes = post1.likes + 3, "03.05.2022")
 
     // какой пост будем менять после публикации
 
-    val updatePostOk = Post(2, 2, "Autor2", "(((((  Пост  изменен  на   новую   запись  ! )))))", 2, 2, "04.05.2022")
+    val updatePostOk = Post(2, 2, "Autor2", "(((((  Пост  изменен  на   новую   запись  ! )))))", 2, 2, "04.05.2022", null)
 
 
     val updatePostNot =
@@ -40,6 +45,8 @@ fun main() {
     WallService.addPost(post1)
     WallService.addPost(post2)
     WallService.addPost(post3)
+    WallService.addPost(post2)
+    WallService.addPost(post2)
 
     // Печать постов в массиве
 

@@ -21,11 +21,11 @@ object WallService {
 
     // перебор с индексом замена поста по индексу
     fun update(postUpdate: Post): Boolean {
-        val (id, _, _, content) = postUpdate
+        val (id, _, _, content, _, _, _,attachments) = postUpdate
         var ok = false
         for ((index, post) in posts.withIndex()) {
             if (post.ownerId == id) {
-                posts[index] = post.copy(content = content) // по индексу ищем нужный пост и меняем content
+                posts[index] = post.copy(content = content,attachments = attachments) // по индексу ищем нужный пост и меняем content
                 ok = true
             }
         }

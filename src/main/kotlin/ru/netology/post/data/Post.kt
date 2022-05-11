@@ -1,6 +1,6 @@
 package ru.netology.post.data
 
-import java.util.*
+import ru.netology.post.attachments.Attachments
 
 data class Post(
     val ownerId: Long = 0,
@@ -11,5 +11,5 @@ data class Post(
     var likes: Int = 0,
     val datePost: String = "01.05.2022",
 
-    val attachments:Array<Any>? = null
+    val attachments: Array<Attachments>? = null
 )
