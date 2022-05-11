@@ -2,6 +2,7 @@ package ru.netology.post.attachments.servisAttachment
 
 import ru.netology.post.attachments.*
 
+
 object WallServiseAttachment {
     var attachments = emptyArray<Attachments>()
 
@@ -54,5 +55,11 @@ object WallServiseAttachment {
             println(attach.toString())
         }
     }
+    fun attachmentsClean() {
+        //конструктор массива - создает пустой массив Attachments (очищает от заптсей)
+        // - функция нужна для теста
+        attachments = emptyArray<Attachments>()
+    }
+
 
 }
