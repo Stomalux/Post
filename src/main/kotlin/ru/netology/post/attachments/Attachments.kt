@@ -1,13 +1,13 @@
 package ru.netology.post.attachments
 
 interface Attachments {
-    var id: Long
-    val album_id: Long
-    val owner_id: Long
-    val user_id: Long
+    var attachmentsId: Long
+    val attachmentsAlbumId: Long
+    val attachmentsOwnerId: Long
+    val attachmentsUserId: Long
 
     val info: String
-        get() = "#$id by $album_id at $owner_id"
+        get() = "#$attachmentsId by $attachmentsAlbumId at $attachmentsOwnerId"
 
-    fun infoFun() = "#$id by $album_id at $owner_id ---"
+    fun infoFun() = "#$attachmentsId by $attachmentsAlbumId at $attachmentsOwnerId ---"
 }

@@ -14,31 +14,31 @@ object WallServiseAttachment {
         when (attach) {
             is AudioAttachment -> {
                 val postTemp = attach.copy()
-                postTemp.id = (if (attachments.isEmpty()) 1 else attachments.last().id + 1)
+                postTemp.attachmentsId = (if (attachments.isEmpty()) 1 else attachments.last().attachmentsId + 1)
                 attachments += postTemp
                 return true
             }
             is PhotoAttachment -> {
                 val postTemp = attach.copy()
-                postTemp.id = (if (attachments.isEmpty()) 1 else attachments.last().id + 1)
+                postTemp.attachmentsId = (if (attachments.isEmpty()) 1 else attachments.last().attachmentsId + 1)
                 attachments += postTemp
                 return true
             }
             is VideoAttachment -> {
                 val postTemp = attach.copy()
-                postTemp.id = (if (attachments.isEmpty()) 1 else attachments.last().id + 1)
+                postTemp.attachmentsId = (if (attachments.isEmpty()) 1 else attachments.last().attachmentsId + 1)
                 attachments += postTemp
                 return true
             }
             is DocAttachment -> {
                 val postTemp = attach.copy()
-                postTemp.id = (if (attachments.isEmpty()) 1 else attachments.last().id + 1)
+                postTemp.attachmentsId = (if (attachments.isEmpty()) 1 else attachments.last().attachmentsId + 1)
                 attachments += postTemp
                 return true
             }
             is NoteAttachment -> {
                 val postTemp = attach.copy()
-                postTemp.id = (if (attachments.isEmpty()) 1 else attachments.last().id + 1)
+                postTemp.attachmentsId = (if (attachments.isEmpty()) 1 else attachments.last().attachmentsId + 1)
                 attachments += postTemp
                 return true
             }
