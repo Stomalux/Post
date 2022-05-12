@@ -1,16 +1,13 @@
 package ru.netology.post.attachments
 
 data class AudioAttachment(
+    override var attachmentsId: Long = 1,
+    override val type: String = "Audio",
+    val audio: Audio = Audio(),
+) : Attachments
 
-    override var attachmentsId: Long,
-    override val attachmentsAlbumId: Long,
-    override val attachmentsOwnerId: Long,
-    override val attachmentsUserId: Long,
-    val type: Audio?
-) : Attachments {
-    override fun infoFun() = "#$attachmentsId by $attachmentsAlbumId at $attachmentsOwnerId --- $type"
-}
-
-class Audio(
-    var realAudio: String
+data class Audio(
+    val attachmentsAlbumId: Long = 1,
+    val attachmentsOwnerId: Long = 1,
+    val attachmentsUserId: Long = 1,
 )

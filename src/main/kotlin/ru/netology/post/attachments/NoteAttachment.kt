@@ -1,16 +1,13 @@
 package ru.netology.post.attachments
 
 data class NoteAttachment(
+    override var attachmentsId: Long = 1,
+    override val type: String = "Note",
+    val note: Note = Note(),
+) : Attachments
 
-    override var attachmentsId: Long,
-    override val attachmentsAlbumId: Long,
-    override val attachmentsOwnerId: Long,
-    override val attachmentsUserId: Long,
-    val type: Note?
-) : Attachments {
-    override fun infoFun() = "#$attachmentsId by $attachmentsAlbumId at $attachmentsOwnerId --- $type"
-}
-
-class Note(
-    var realNote: String
+data class Note(
+    val attachmentsAlbumId: Long = 1,
+    val attachmentsOwnerId: Long = 1,
+    val attachmentsUserId: Long = 1,
 )

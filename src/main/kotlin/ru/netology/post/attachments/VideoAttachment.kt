@@ -1,16 +1,13 @@
 package ru.netology.post.attachments
 
 data class VideoAttachment(
+    override var attachmentsId: Long = 1,
+    override val type: String = "Video",
+    val video: Video = Video(),
+) : Attachments
 
-    override var attachmentsId: Long,
-    override val attachmentsAlbumId: Long,
-    override val attachmentsOwnerId: Long,
-    override val attachmentsUserId: Long,
-    val type: Video?
-) : Attachments {
-    override fun infoFun() = "#$attachmentsId by $attachmentsAlbumId at $attachmentsOwnerId --- $type"
-}
-
-class Video(
-    var realVideo: String
+data class Video(
+    val attachmentsAlbumId: Long = 1,
+    val attachmentsOwnerId: Long = 1,
+    val attachmentsUserId: Long = 1,
 )

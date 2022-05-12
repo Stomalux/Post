@@ -16,13 +16,17 @@ class WallServiseAttachmentTest {
         // Очищаем массив от предыдущих данных
         WallServiseAttachment.attachmentsClean()
 
-        // заполняем несколькими постами
-        val photonal = Photo("11111111111111")
-        val photo2 = PhotoAttachment(0, 2, 2, 2, photonal)
-        val photo3 = PhotoAttachment(0, 3, 3, 3, Photo("11--2222222--111"))
+        // Создаем Аттачи с Photo
+        val photo1 = PhotoAttachment()
+        val photo2 = PhotoAttachment()
+        val photo3 = PhotoAttachment(photo = Photo(3, 3, 3))
+        val photo4 = PhotoAttachment(photo = Photo(4, 4, 4), type = "photo")
 
+        // Добавляем в массив
+        service.addAttachmentsAllWhenPost(photo1)
         service.addAttachmentsAllWhenPost(photo2)
-        val addAttachmentOk = service.addAttachmentsAllWhenPost(photo3)
+        service.addAttachmentsAllWhenPost(photo3)
+        val addAttachmentOk = service.addAttachmentsAllWhenPost(photo4)
 
         // проверяем результат
         assertEquals(addAttachmentOk, true)
@@ -37,14 +41,17 @@ class WallServiseAttachmentTest {
         // Очищаем массив от предыдущих данных
         WallServiseAttachment.attachmentsClean()
 
-        // заполняем несколькими постами
+        // Создаем Аттачи с Video
+        val video1 = VideoAttachment()
+        val video2 = VideoAttachment()
+        val video3 = VideoAttachment(video = Video(3, 3, 3))
+        val video4 = VideoAttachment(video = Video(4, 4, 4), type = "Video")
 
-        val videonal = Video("===================")
-        val video2 = VideoAttachment(0, 2, 2, 2, videonal)
-        val video3 = VideoAttachment(0, 3, 3, 3, Video("----------2222222"))
-
+        // Добавляем в массив
+        service.addAttachmentsAllWhenPost(video1)
         service.addAttachmentsAllWhenPost(video2)
-        val addAttachmentOk = service.addAttachmentsAllWhenPost(video3)
+        service.addAttachmentsAllWhenPost(video3)
+        val addAttachmentOk = service.addAttachmentsAllWhenPost(video4)
 
         // проверяем результат
         assertEquals(addAttachmentOk, true)
@@ -59,14 +66,17 @@ class WallServiseAttachmentTest {
         // Очищаем массив от предыдущих данных
         WallServiseAttachment.attachmentsClean()
 
-        // заполняем несколькими постами
+        // Создаем Аттачи с Audio
+        val audio1 = AudioAttachment()
+        val audio2 = AudioAttachment()
+        val audio3 = AudioAttachment(audio = Audio(3, 3, 3))
+        val audio4 = AudioAttachment(audio = Audio(4, 4, 4), type = "Audio")
 
-        val audional = Audio("=========dfgh==========")
-        val audio2 = AudioAttachment(0, 2, 2, 2, audional)
-        val audio3 = AudioAttachment(0, 3, 3, 3, Audio("############2222222"))
-
+        // Добавляем в массив
+        service.addAttachmentsAllWhenPost(audio1)
         service.addAttachmentsAllWhenPost(audio2)
-        val addAttachmentOk = service.addAttachmentsAllWhenPost(audio3)
+        service.addAttachmentsAllWhenPost(audio3)
+        val addAttachmentOk = service.addAttachmentsAllWhenPost(audio4)
 
         // проверяем результат
         assertEquals(addAttachmentOk, true)
@@ -81,13 +91,17 @@ class WallServiseAttachmentTest {
         // Очищаем массив от предыдущих данных
         WallServiseAttachment.attachmentsClean()
 
-        // заполняем несколькими постами
+        // Создаем Аттачи с Doc
+        val doc1 = DocAttachment()
+        val doc2 = DocAttachment()
+        val doc3 = DocAttachment(doc = Doc(3, 3, 3))
+        val doc4 = DocAttachment(doc = Doc(4, 4, 4), type = "Doc")
 
-        val doc1 = DocAttachment(0, 1, 1, 1, null)
-        val doc3 = DocAttachment(0, 3, 3, 3, Doc("%%%%%%%%%%%%%%%2222222"))
-
+        // Добавляем в массив
         service.addAttachmentsAllWhenPost(doc1)
-        val addAttachmentOk = service.addAttachmentsAllWhenPost(doc3)
+        service.addAttachmentsAllWhenPost(doc2)
+        service.addAttachmentsAllWhenPost(doc3)
+        val addAttachmentOk = service.addAttachmentsAllWhenPost(doc4)
 
         // проверяем результат
         assertEquals(addAttachmentOk, true)
@@ -102,14 +116,17 @@ class WallServiseAttachmentTest {
         // Очищаем массив от предыдущих данных
         WallServiseAttachment.attachmentsClean()
 
-        // заполняем несколькими постами
+        // Создаем Аттачи с Note
+        val note1 = NoteAttachment()
+        val note2 = NoteAttachment()
+        val note3 = NoteAttachment(note = Note(3, 3, 3))
+        val note4 = NoteAttachment(note = Note(4, 4, 4), type = "Note")
 
-        val notenal = Note("==3333=========")
-        val note1 = NoteAttachment(0, 1, 1, 1, null)
-        val note2 = NoteAttachment(0, 2, 2, 2, notenal)
-
+        // Добавляем в массив
         service.addAttachmentsAllWhenPost(note1)
-        val addAttachmentOk = service.addAttachmentsAllWhenPost(note2)
+        service.addAttachmentsAllWhenPost(note2)
+        service.addAttachmentsAllWhenPost(note3)
+        val addAttachmentOk = service.addAttachmentsAllWhenPost(note4)
 
         // проверяем результат
         assertEquals(addAttachmentOk, true)
@@ -125,41 +142,69 @@ class WallServiseAttachmentTest {
         // Очищаем массив от предыдущих данных
         WallServiseAttachment.attachmentsClean()
 
-        // заполняем несколькими постами
-        val photonal = Photo("11111111111111")
-        val photo2 = PhotoAttachment(0, 2, 2, 2, photonal)
-        val photo3 = PhotoAttachment(0, 3, 3, 3, Photo("11--2222222--111"))
+        // Создаем Аттачи с Audio
 
-        val videonal = Video("===================")
-        val video2 = VideoAttachment(0, 2, 2, 2, videonal)
-        val video3 = VideoAttachment(0, 3, 3, 3, Video("----------2222222"))
+        val audio1 = AudioAttachment()
+        val audio2 = AudioAttachment()
+        val audio3 = AudioAttachment(audio = Audio(3, 3, 3))
+        val audio4 = AudioAttachment(audio = Audio(4, 4, 4), type = "Audio")
 
-        val audional = Audio("=========dfgh==========")
-        val audio2 = AudioAttachment(0, 2, 2, 2, audional)
-        val audio3 = AudioAttachment(0, 3, 3, 3, Audio("############2222222"))
+        // Создаем Аттачи с Video
 
+        val video1 = VideoAttachment()
+        val video2 = VideoAttachment()
+        val video3 = VideoAttachment(video = Video(3, 3, 3))
+        val video4 = VideoAttachment(video = Video(4, 4, 4), type = "Video")
 
-        val doc1 = DocAttachment(0, 1, 1, 1, null)
-        val doc3 = DocAttachment(0, 3, 3, 3, Doc("%%%%%%%%%%%%%%%2222222"))
+// Создаем Аттачи с Photo
 
-        val notenal = Note("==3333=========")
-        val note1 = NoteAttachment(0, 1, 1, 1, null)
-        val note2 = NoteAttachment(0, 2, 2, 2, notenal)
+        val photo1 = PhotoAttachment()
+        val photo2 = PhotoAttachment()
+        val photo3 = PhotoAttachment(photo = Photo(3, 3, 3))
+        val photo4 = PhotoAttachment(photo = Photo(4, 4, 4), type = "photo")
 
+        // Создаем Аттачи с Doc
+
+        val doc1 = DocAttachment()
+        val doc2 = DocAttachment()
+        val doc3 = DocAttachment(doc = Doc(3, 3, 3))
+        val doc4 = DocAttachment(doc = Doc(4, 4, 4), type = "Doc")
+
+        // Создаем Аттачи с Note
+
+        val note1 = NoteAttachment()
+        val note2 = NoteAttachment()
+        val note3 = NoteAttachment(note = Note(3, 3, 3))
+        val note4 = NoteAttachment(note = Note(4, 4, 4), type = "Note")
+
+        // Создаем Аттачи
+
+        service.addAttachmentsAllWhenPost(photo1)
         service.addAttachmentsAllWhenPost(photo2)
         service.addAttachmentsAllWhenPost(photo3)
+        service.addAttachmentsAllWhenPost(photo4)
 
+        service.addAttachmentsAllWhenPost(video1)
         service.addAttachmentsAllWhenPost(video2)
         service.addAttachmentsAllWhenPost(video3)
+        service.addAttachmentsAllWhenPost(video4)
 
+
+        service.addAttachmentsAllWhenPost(audio1)
         service.addAttachmentsAllWhenPost(audio2)
         service.addAttachmentsAllWhenPost(audio3)
+        service.addAttachmentsAllWhenPost(audio4)
+
 
         service.addAttachmentsAllWhenPost(doc1)
+        service.addAttachmentsAllWhenPost(doc2)
         service.addAttachmentsAllWhenPost(doc3)
+        service.addAttachmentsAllWhenPost(doc4)
 
         service.addAttachmentsAllWhenPost(note1)
-        val addAttachmentOk = service.addAttachmentsAllWhenPost(note2)
+        service.addAttachmentsAllWhenPost(note2)
+        service.addAttachmentsAllWhenPost(note3)
+        val addAttachmentOk = service.addAttachmentsAllWhenPost(note4)
 
         // проверяем результат
         assertEquals(addAttachmentOk, true)

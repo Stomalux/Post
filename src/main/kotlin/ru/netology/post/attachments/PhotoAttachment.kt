@@ -1,16 +1,13 @@
 package ru.netology.post.attachments
 
 data class PhotoAttachment(
+    override var attachmentsId: Long = 1,
+    override val type: String = "Photo",
+    val photo: Photo = Photo(),
+) : Attachments
 
-    override var attachmentsId: Long,
-    override val attachmentsAlbumId: Long,
-    override val attachmentsOwnerId: Long,
-    override val attachmentsUserId: Long,
-    val type: Photo?
-) : Attachments {
-    override fun infoFun() = "#$attachmentsId by $attachmentsAlbumId at $attachmentsOwnerId --- $type"
-}
-
-class Photo(
-    var realPoto: String
+data class Photo(
+    val attachmentsAlbumId: Long = 1,
+    val attachmentsOwnerId: Long = 1,
+    val attachmentsUserId: Long = 1,
 )
