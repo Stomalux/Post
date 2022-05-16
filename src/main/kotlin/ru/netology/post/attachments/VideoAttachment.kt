@@ -2,7 +2,7 @@ package ru.netology.post.attachments
 
 data class VideoAttachment(
     override var attachmentsId: Long = 1,
-    override val type: String = "Video",
+    override val type: String = "video",
     val video: Video = Video(),
 ) : Attachments
 

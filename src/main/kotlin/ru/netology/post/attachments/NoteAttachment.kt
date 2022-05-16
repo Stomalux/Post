@@ -2,7 +2,7 @@ package ru.netology.post.attachments
 
 data class NoteAttachment(
     override var attachmentsId: Long = 1,
-    override val type: String = "Note",
+    override val type: String = "note",
     val note: Note = Note(),
 ) : Attachments
 

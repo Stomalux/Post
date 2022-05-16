@@ -2,7 +2,7 @@ package ru.netology.post.attachments
 
 data class PhotoAttachment(
     override var attachmentsId: Long = 1,
-    override val type: String = "Photo",
+    override val type: String = "photo",
     val photo: Photo = Photo(),
 ) : Attachments
 

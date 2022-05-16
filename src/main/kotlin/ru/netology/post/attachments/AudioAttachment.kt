@@ -2,7 +2,7 @@ package ru.netology.post.attachments
 
 data class AudioAttachment(
     override var attachmentsId: Long = 1,
-    override val type: String = "Audio",
+    override val type: String = "audio",
     val audio: Audio = Audio(),
 ) : Attachments
 
