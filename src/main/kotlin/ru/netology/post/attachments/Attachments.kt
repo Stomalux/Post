@@ -2,7 +2,7 @@ package ru.netology.post.attachments
 
 interface Attachments {
     val type: String
-    var attachmentsId: Long
+   // var attachmentsId: Long
 
 
 //    val info: String

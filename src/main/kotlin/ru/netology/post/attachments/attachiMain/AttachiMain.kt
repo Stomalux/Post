@@ -12,14 +12,14 @@ object AttachiMain {
         val audio1 = AudioAttachment()
         val audio2 = AudioAttachment()
         val audio3 = AudioAttachment(audio = Audio(3, 3, 3))
-        val audio4 = AudioAttachment(audio = Audio(4, 4, 4), type = "Audio")
+        val audio4 = AudioAttachment(type = "audio",audio = Audio(4, 4, 4))
 
         // Создаем Аттачи с Video
 
         val video1 = VideoAttachment()
         val video2 = VideoAttachment()
         val video3 = VideoAttachment(video = Video(3, 3, 3))
-        val video4 = VideoAttachment(video = Video(4, 4, 4), type = "Video")
+        val video4 = VideoAttachment(video = Video(4, 4, 4), type = "video")
 
 // Создаем Аттачи с Photo
 
@@ -33,14 +33,14 @@ object AttachiMain {
         val doc1 = DocAttachment()
         val doc2 = DocAttachment()
         val doc3 = DocAttachment(doc = Doc(3, 3, 3))
-        val doc4 = DocAttachment(doc = Doc(4, 4, 4), type = "Doc")
+        val doc4 = DocAttachment(doc = Doc(4, 4, 4), type = "doc")
 
         // Создаем Аттачи с Note
 
         val note1 = NoteAttachment()
         val note2 = NoteAttachment()
         val note3 = NoteAttachment(note = Note(3, 3, 3))
-        val note4 = NoteAttachment(note = Note(4, 4, 4), type = "Note")
+        val note4 = NoteAttachment(note = Note(4, 4, 4), type = "note")
 
 
 
