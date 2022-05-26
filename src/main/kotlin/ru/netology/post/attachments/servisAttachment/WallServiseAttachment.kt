@@ -177,3 +177,18 @@ object WallServiseAttachment {
 //        }
 //    }
 //  postTemp.audio.attachmentsId = (if (attachments.isEmpty()) 1 else (attachments.last() as AudioAttachment).audio.attachmentsId + 1)
+
+
+//abstract class Attachment
+//
+//class AudioAttachment : Attachment()
+//
+//fun main() {
+//    val post = Post()
+//    val firstAttachment = post.attachments[0]
+//    if (firstAttachment is AudioAttachment) {
+//        val audioAttachment = firstAttachment
+//        println(audioAttachment)
+//    }
+//}
+//}

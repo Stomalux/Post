@@ -3,7 +3,6 @@ import ru.netology.post.data.Post
 import ru.netology.post.service.WallService
 
 
-
 // Проверьте пожалуйста предыдущее домашнее задание. Я доработал как требовалось.
 
 
@@ -19,12 +18,13 @@ fun main() {
     //создаем посты
 
     val post1 = Post()
-    val post2 = Post(0, 2, "Autor2", "Запись поста номер 2", 2, 2,"02.05.2022", attachiForPost)
-    val post3 = post1.copy(0, 3, "Autor3", "Запись поста номер 3",3, likes = post1.likes + 3, "03.05.2022")
+    val post2 = Post(0, 2, "Autor2", "Запись поста номер 2", 2, 2, "02.05.2022", attachiForPost)
+    val post3 = post1.copy(0, 3, "Autor3", "Запись поста номер 3", 3, likes = post1.likes + 3, "03.05.2022")
 
     // какой пост будем менять после публикации
 
-    val updatePostOk = Post(2, 2, "Autor2", "(((((  Пост  изменен  на   новую   запись  ! )))))", 2, 2, "04.05.2022", null)
+    val updatePostOk =
+        Post(2, 2, "Autor2", "(((((  Пост  изменен  на   новую   запись  ! )))))", 2, 2, "04.05.2022", null)
 
 
     val updatePostNot =
@@ -80,5 +80,14 @@ fun main() {
     println("Пост с id - 105 в массивe - НЕ изменен. Такого номера нет! ")
     println("========================================================")
     WallService.printAll()
+
+
+    WallService.printAll2()
+
+
+    println(" Работа с коментариями")
+    println()
+
+
 
 }

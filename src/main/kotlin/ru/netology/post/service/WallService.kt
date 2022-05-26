@@ -1,10 +1,24 @@
 package ru.netology.post.service
 
+import ru.netology.post.data.Comment
 import ru.netology.post.data.Post
+import ru.netology.post.data.PostNotFoundException
 
 object WallService {
 
     private var posts = emptyArray<Post>() //конструктор массива - создает пустой массив
+    private var comments = emptyArray<Comment>()
+
+    fun createComment(postId: Long, comment: Comment): Comment {
+        for ((index, post) in posts.withIndex()) {
+            if (post.ownerId == postId) {
+                posts[index] = post.copy(content = content,attachments = attachments) // по индексу ищем нужный пост и меняем content
+                ok = true
+            }
+        }
+        return ok
+
+    }
 
     fun postsClean() {
         //конструктор массива - создает пустой массив (очищает от заптсей)
@@ -38,4 +52,32 @@ object WallService {
             println(post.toString())
         }
     }
+
+ fun printAll2() {
+     for ((index, value) in posts.withIndex()) {
+         println("The element at $index is $value")
+         val mass = value.attachments
+         if (mass != null) {
+             for ((index, value) in mass.withIndex()) {
+                 println("The element at $index is $value")
+
+             }
+         }
+
+     }
+ }
+//    fun printAll2() {
+//        for ((index, value) in posts.withIndex()) {
+//            println("The element at $index is $value")
+//            val mass = value.attachments
+//            if (mass != null) {
+//                for ((index, value) in mass.withIndex()) {
+//                    println("The element at $index is $value")
+//
+//                }
+//            }
+//
+//        }
+//    }
+
 }
