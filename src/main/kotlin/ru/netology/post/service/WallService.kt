@@ -1,10 +1,34 @@
 package ru.netology.post.service
 
+import ru.netology.post.data.Comment
 import ru.netology.post.data.Post
+import ru.netology.post.data.PostNotFoundException
 
 object WallService {
 
     private var posts = emptyArray<Post>() //конструктор массива - создает пустой массив
+    private var comments = emptyArray<Comment>()
+
+    fun getIdPostComment(id:Long, comment: Comment) : Boolean {
+
+        println()
+        println("Проверяем есть ли номер $id  ?")
+        val postComment = findById(id)?: throw PostNotFoundException("No post with id $id")
+        comments += comment // загружаем комментарий
+        println(postComment)
+        println("Пост номер $id имеется. Комментарий загружен.")
+        return true
+    }
+
+    fun findById (id: Long): Post? {
+        for (post in posts) {
+            if (post.ownerId == id) {
+                return post
+            }
+        }
+        return null
+    }
+
 
     fun postsClean() {
         //конструктор массива - создает пустой массив (очищает от заптсей)
@@ -21,11 +45,11 @@ object WallService {
 
     // перебор с индексом замена поста по индексу
     fun update(postUpdate: Post): Boolean {
-        val (id, _, _, content) = postUpdate
+        val (id, _, _, content, _, _, _,attachments) = postUpdate
         var ok = false
         for ((index, post) in posts.withIndex()) {
             if (post.ownerId == id) {
-                posts[index] = post.copy(content = content) // по индексу ищем нужный пост и меняем content
+                posts[index] = post.copy(content = content,attachments = attachments) // по индексу ищем нужный пост и меняем content
                 ok = true
             }
         }
@@ -38,4 +62,32 @@ object WallService {
             println(post.toString())
         }
     }
+
+ fun printAll2() {
+     for ((index, value) in posts.withIndex()) {
+         println("The element at $index is $value")
+         val mass = value.attachments
+         if (mass != null) {
+             for ((index, value) in mass.withIndex()) {
+                 println("The element at $index is $value")
+
+             }
+         }
+
+     }
+ }
+//    fun printAll2() {
+//        for ((index, value) in posts.withIndex()) {
+//            println("The element at $index is $value")
+//            val mass = value.attachments
+//            if (mass != null) {
+//                for ((index, value) in mass.withIndex()) {
+//                    println("The element at $index is $value")
+//
+//                }
+//            }
+//
+//        }
+//    }
+
 }
