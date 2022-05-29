@@ -47,7 +47,7 @@ object AttachiMain {
 
 
 
-        println("Вводим данные в  мвссив Аттачментов ")
+       // println("Вводим данные в  мвссив Аттачментов ")
 
         WallServiseAttachment.addAttachmentsAllWhenPost(audio1)
         WallServiseAttachment.addAttachmentsAllWhenPost(audio2)
@@ -76,8 +76,8 @@ object AttachiMain {
 
 
 // Пачатаем массив аттачментов
-        println("Пачатаем массив аттачментов")
-        WallServiseAttachment.printAllAttach()
+//        println("Пачатаем массив аттачментов")
+//        WallServiseAttachment.printAllAttach()
 
 //        // Создаем Аттачи с фото
 //        val photonal = Photo("11111111111111")

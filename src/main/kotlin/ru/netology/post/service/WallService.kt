@@ -9,16 +9,26 @@ object WallService {
     private var posts = emptyArray<Post>() //конструктор массива - создает пустой массив
     private var comments = emptyArray<Comment>()
 
-    fun createComment(postId: Long, comment: Comment): Comment {
-        for ((index, post) in posts.withIndex()) {
-            if (post.ownerId == postId) {
-                posts[index] = post.copy(content = content,attachments = attachments) // по индексу ищем нужный пост и меняем content
-                ok = true
+    fun getIdPostComment(id:Long, comment: Comment) : Boolean {
+
+        println()
+        println("Проверяем есть ли номер $id  ?")
+        val postComment = findById(id)?: throw PostNotFoundException("No post with id $id")
+        comments += comment // загружаем комментарий
+        println(postComment)
+        println("Пост номер $id имеется. Комментарий загружен.")
+        return true
+    }
+
+    fun findById (id: Long): Post? {
+        for (post in posts) {
+            if (post.ownerId == id) {
+                return post
             }
         }
-        return ok
-
+        return null
     }
+
 
     fun postsClean() {
         //конструктор массива - создает пустой массив (очищает от заптсей)
